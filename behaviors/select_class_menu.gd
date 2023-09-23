@@ -11,7 +11,6 @@ func _ready():
 	
 	button_template.set_character_class(classes[0])
 	for klass in classes.slice(1):
-		var btn = button_template.duplicate(DUPLICATE_SCRIPTS | DUPLICATE_SIGNALS
-		)
+		var btn = button_template.duplicate()
 		btn.set_character_class(klass)
 		add_child(btn)

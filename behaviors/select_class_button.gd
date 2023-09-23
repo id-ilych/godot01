@@ -6,6 +6,7 @@ class_name SelectClassButton
 var character_class: CharacterClass
 
 func _ready():
+	pressed.connect(_on_pressed)
 	if target:
 		target.changed.connect(refresh)
 	
