@@ -115,6 +115,7 @@ classes = Array[Resource("res://resource_definitions/character_class.gd")]([ExtR
 [node name="SelectClassButtonTemplate" type="Button" parent="SelectClassMenu"]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
 theme_override_font_sizes/font_size = 50
 text = "Warrior"
 script = ExtResource("6_0cjlj")
