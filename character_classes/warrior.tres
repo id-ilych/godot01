@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="CharacterClass" load_steps=2 format=3 uid="uid://8d7j13cq33up"]
 
-[ext_resource type="Script" path="res://character_class.gd" id="1_8ljwe"]
+[ext_resource type="Script" path="res://resource_definitions/character_class.gd" id="1_8ljwe"]
 
 [resource]
 script = ExtResource("1_8ljwe")
+name = "Warrior"
 strength = 100
 agility = 75
 intelligence = 50

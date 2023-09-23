@@ -1,6 +1,6 @@
 extends Control
 
-class_name SelectedClass
+class_name ClassView
 
 @onready var stength_value = $CenteredContainer/Stats/Strength/Value
 @onready var agility_value = $CenteredContainer/Stats/Agility/Value
