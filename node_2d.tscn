@@ -1,0 +1,132 @@
+[gd_scene load_steps=6 format=3 uid="uid://cl0gtsm784qwr"]
+
+[ext_resource type="Script" path="res://SelectedClass.gd" id="1_8oxts"]
+[ext_resource type="Resource" uid="uid://8d7j13cq33up" path="res://character_classes/warrior.tres" id="2_2453u"]
+[ext_resource type="Resource" uid="uid://dtp2iqoxfu7bw" path="res://character_classes/wizard.tres" id="2_q0rs7"]
+[ext_resource type="Script" path="res://SelectClassButton.gd" id="3_dbsna"]
+[ext_resource type="Resource" uid="uid://b8akoiilqi5r0" path="res://character_classes/assassin.tres" id="5_vetnh"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="SelectedClass" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 575.0
+offset_top = 300.0
+offset_right = 575.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_8oxts")
+character_class = ExtResource("2_q0rs7")
+
+[node name="CenteredContainer" type="CenterContainer" parent="SelectedClass"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -502.0
+offset_top = -214.0
+offset_right = 502.0
+offset_bottom = 214.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Stats" type="VBoxContainer" parent="SelectedClass/CenteredContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Strength" type="HBoxContainer" parent="SelectedClass/CenteredContainer/Stats"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="SelectedClass/CenteredContainer/Stats/Strength"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Strength"
+
+[node name="Value" type="Label" parent="SelectedClass/CenteredContainer/Stats/Strength"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "99"
+horizontal_alignment = 2
+
+[node name="Agility" type="HBoxContainer" parent="SelectedClass/CenteredContainer/Stats"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="SelectedClass/CenteredContainer/Stats/Agility"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Agility"
+
+[node name="Value" type="Label" parent="SelectedClass/CenteredContainer/Stats/Agility"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "99"
+horizontal_alignment = 2
+
+[node name="Intelligence" type="HBoxContainer" parent="SelectedClass/CenteredContainer/Stats"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="SelectedClass/CenteredContainer/Stats/Intelligence"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Intelligence"
+
+[node name="Value" type="Label" parent="SelectedClass/CenteredContainer/Stats/Intelligence"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "99"
+horizontal_alignment = 2
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+offset_top = 520.0
+offset_right = 1150.0
+offset_bottom = 646.0
+
+[node name="Warrior" type="Button" parent="Buttons" node_paths=PackedStringArray("selected_class")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Warrior"
+script = ExtResource("3_dbsna")
+selected_class = NodePath("../../SelectedClass")
+character_class = ExtResource("2_2453u")
+
+[node name="Assassin" type="Button" parent="Buttons" node_paths=PackedStringArray("selected_class")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Assassin"
+script = ExtResource("3_dbsna")
+selected_class = NodePath("../../SelectedClass")
+character_class = ExtResource("5_vetnh")
+
+[node name="Wizard" type="Button" parent="Buttons" node_paths=PackedStringArray("selected_class")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Wizard"
+script = ExtResource("3_dbsna")
+selected_class = NodePath("../../SelectedClass")
+character_class = ExtResource("2_q0rs7")
+
+[connection signal="pressed" from="Buttons/Warrior" to="Buttons/Warrior" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/Assassin" to="Buttons/Assassin" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/Wizard" to="Buttons/Wizard" method="_on_pressed"]
