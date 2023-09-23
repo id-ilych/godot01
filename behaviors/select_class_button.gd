@@ -23,4 +23,4 @@ func set_character_class(new_class):
 
 func refresh():
 	var selected = target and target.value == character_class
-	disabled = selected
+	button_pressed = selected

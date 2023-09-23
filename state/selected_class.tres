@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="CharacterClassReference" load_steps=3 format=3 uid="uid://d3lgvijj58n6h"]
 
 [ext_resource type="Script" path="res://resource_definitions/character_class_reference.gd" id="1_shu8a"]
-[ext_resource type="Resource" uid="uid://8d7j13cq33up" path="res://character_classes/warrior.tres" id="2_6p3ej"]
+[ext_resource type="Resource" uid="uid://b8akoiilqi5r0" path="res://character_classes/assassin.tres" id="2_nc61e"]
 
 [resource]
 script = ExtResource("1_shu8a")
-value = ExtResource("2_6p3ej")
+value = ExtResource("2_nc61e")

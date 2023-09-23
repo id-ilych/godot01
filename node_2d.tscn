@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cl0gtsm784qwr"]
+[gd_scene load_steps=9 format=3 uid="uid://cl0gtsm784qwr"]
 
 [ext_resource type="Script" path="res://behaviors/character_class_label.gd" id="1_tf0my"]
 [ext_resource type="Resource" uid="uid://8d7j13cq33up" path="res://character_classes/warrior.tres" id="2_2453u"]
@@ -7,6 +7,8 @@
 [ext_resource type="Resource" uid="uid://b8akoiilqi5r0" path="res://character_classes/assassin.tres" id="5_vetnh"]
 [ext_resource type="Script" path="res://behaviors/select_class_button.gd" id="6_0cjlj"]
 [ext_resource type="Resource" uid="uid://d3lgvijj58n6h" path="res://state/selected_class.tres" id="7_3tlra"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_14x5w"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -117,6 +119,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 50
+toggle_mode = true
+button_group = SubResource("ButtonGroup_14x5w")
 text = "Warrior"
 script = ExtResource("6_0cjlj")
 target = ExtResource("7_3tlra")
