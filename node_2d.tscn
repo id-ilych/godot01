@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cl0gtsm784qwr"]
+[gd_scene load_steps=8 format=3 uid="uid://cl0gtsm784qwr"]
 
-[ext_resource type="Script" path="res://scripts/class_view.gd" id="1_tj7oa"]
+[ext_resource type="Script" path="res://behaviors/class_view.gd" id="1_wi2o5"]
 [ext_resource type="Resource" uid="uid://8d7j13cq33up" path="res://character_classes/warrior.tres" id="2_2453u"]
 [ext_resource type="Resource" uid="uid://dtp2iqoxfu7bw" path="res://character_classes/wizard.tres" id="2_q0rs7"]
-[ext_resource type="Script" path="res://scripts/select_class_menu.gd" id="3_huqpv"]
+[ext_resource type="Script" path="res://behaviors/select_class_menu.gd" id="3_f6qs5"]
 [ext_resource type="Resource" uid="uid://b8akoiilqi5r0" path="res://character_classes/assassin.tres" id="5_vetnh"]
-[ext_resource type="Script" path="res://scripts/select_class_button.gd" id="6_k1ikm"]
+[ext_resource type="Script" path="res://behaviors/select_class_button.gd" id="6_0cjlj"]
+[ext_resource type="Resource" uid="uid://d3lgvijj58n6h" path="res://state/selected_class.tres" id="7_3tlra"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -22,8 +23,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_tj7oa")
-character_class = ExtResource("2_q0rs7")
+script = ExtResource("1_wi2o5")
+source = ExtResource("7_3tlra")
 
 [node name="CenteredContainer" type="CenterContainer" parent="ClassView"]
 layout_mode = 1
@@ -100,16 +101,16 @@ horizontal_alignment = 2
 offset_top = 520.0
 offset_right = 1150.0
 offset_bottom = 646.0
-script = ExtResource("3_huqpv")
+script = ExtResource("3_f6qs5")
 button_template = NodePath("SelectClassButtonTemplate")
 classes = Array[Resource("res://resource_definitions/character_class.gd")]([ExtResource("2_2453u"), ExtResource("5_vetnh"), ExtResource("2_q0rs7")])
 
-[node name="SelectClassButtonTemplate" type="Button" parent="SelectClassMenu" node_paths=PackedStringArray("selected_class")]
+[node name="SelectClassButtonTemplate" type="Button" parent="SelectClassMenu"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
 text = "Warrior"
-script = ExtResource("6_k1ikm")
-selected_class = NodePath("../../ClassView")
+script = ExtResource("6_0cjlj")
+target = ExtResource("7_3tlra")
 
 [connection signal="pressed" from="SelectClassMenu/SelectClassButtonTemplate" to="SelectClassMenu/SelectClassButtonTemplate" method="_on_pressed"]

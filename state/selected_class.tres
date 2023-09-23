@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="CharacterClassReference" load_steps=2 format=3 uid="uid://d3lgvijj58n6h"]
+
+[ext_resource type="Script" path="res://resource_definitions/character_class_reference.gd" id="1_shu8a"]
+
+[resource]
+script = ExtResource("1_shu8a")
