@@ -7,9 +7,7 @@ var character_class: CharacterClass
 
 func _ready():
 	pressed.connect(_on_pressed)
-	if target:
-		target.changed.connect(refresh)
-	
+	if target: target.changed.connect(refresh)
 	refresh()
 
 func _on_pressed():

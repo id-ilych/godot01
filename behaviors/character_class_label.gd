@@ -1,9 +1,14 @@
 extends Label
 
-const CharacterClassStringProperty = preload("res://resource_definitions/character_class.gd").CharacterClassStringProperty
+enum Property {
+	Name,
+	Strength,
+	Agility,
+	Intelligence,
+}
 
 @export var source: CharacterClassReference
-@export var property: CharacterClassStringProperty
+@export var property: Property
 
 func _ready():
 	if not source: return
@@ -11,6 +16,23 @@ func _ready():
 	source.changed.connect(refresh)
 	refresh()
 
+
 func refresh():
-	var character_class = source.value
-	text = character_class.get_string(property) if character_class else "--"
+	text = extract_text(source.value)
+
+
+func extract_text(klass: CharacterClass):
+	if not klass: return "--"
+	
+	match property:
+		Property.Name:
+			return klass.name
+		Property.Strength:
+			return str(klass.strength)
+		Property.Agility:
+			return str(klass.agility)
+		Property.Intelligence:
+			return str(klass.intelligence)
+		_:
+			print("[CharacterClassLable#extract] Unknown property: ", property)
+			return "???"
