@@ -8,51 +8,50 @@
 [ext_resource type="Resource" uid="uid://dtp2iqoxfu7bw" path="res://roles/wizard.tres" id="6_8ss2o"]
 [ext_resource type="Script" path="res://behaviors/select_role_button.gd" id="7_i4at5"]
 
-[node name="Node2D" type="Node2D"]
-
-[node name="SelectedClass" type="Control" parent="."]
+[node name="UI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 575.0
-offset_top = 250.0
-offset_right = 575.0
-offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CenteredContainer" type="CenterContainer" parent="SelectedClass"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -502.0
-offset_top = -214.0
-offset_right = 502.0
-offset_bottom = 214.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Stats" type="VBoxContainer" parent="SelectedClass/CenteredContainer"]
+[node name="Stats" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Strength" type="HBoxContainer" parent="SelectedClass/CenteredContainer/Stats"]
+[node name="Name" type="Label" parent="VBoxContainer/Stats"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Warrior"
+horizontal_alignment = 1
+script = ExtResource("1_qhey7")
+source = ExtResource("2_owgiq")
+
+[node name="Strength" type="HBoxContainer" parent="VBoxContainer/Stats"]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="SelectedClass/CenteredContainer/Stats/Strength"]
+[node name="Label" type="Label" parent="VBoxContainer/Stats/Strength"]
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "Strength"
 
-[node name="Value" type="Label" parent="SelectedClass/CenteredContainer/Stats/Strength"]
+[node name="Value" type="Label" parent="VBoxContainer/Stats/Strength"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
@@ -62,18 +61,18 @@ script = ExtResource("1_qhey7")
 source = ExtResource("2_owgiq")
 property = 1
 
-[node name="Agility" type="HBoxContainer" parent="SelectedClass/CenteredContainer/Stats"]
+[node name="Agility" type="HBoxContainer" parent="VBoxContainer/Stats"]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="SelectedClass/CenteredContainer/Stats/Agility"]
+[node name="Label" type="Label" parent="VBoxContainer/Stats/Agility"]
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "Agility"
 
-[node name="Value" type="Label" parent="SelectedClass/CenteredContainer/Stats/Agility"]
+[node name="Value" type="Label" parent="VBoxContainer/Stats/Agility"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
@@ -83,18 +82,18 @@ script = ExtResource("1_qhey7")
 source = ExtResource("2_owgiq")
 property = 2
 
-[node name="Intelligence" type="HBoxContainer" parent="SelectedClass/CenteredContainer/Stats"]
+[node name="Intelligence" type="HBoxContainer" parent="VBoxContainer/Stats"]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="SelectedClass/CenteredContainer/Stats/Intelligence"]
+[node name="Label" type="Label" parent="VBoxContainer/Stats/Intelligence"]
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "Intelligence"
 
-[node name="Value" type="Label" parent="SelectedClass/CenteredContainer/Stats/Intelligence"]
+[node name="Value" type="Label" parent="VBoxContainer/Stats/Intelligence"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
@@ -104,15 +103,13 @@ script = ExtResource("1_qhey7")
 source = ExtResource("2_owgiq")
 property = 3
 
-[node name="SelectClassMenu" type="HBoxContainer" parent="." node_paths=PackedStringArray("button_template")]
-offset_top = 520.0
-offset_right = 1150.0
-offset_bottom = 646.0
+[node name="SelectClassMenu" type="HBoxContainer" parent="VBoxContainer" node_paths=PackedStringArray("button_template")]
+layout_mode = 2
 script = ExtResource("3_1ub3g")
 button_template = NodePath("SelectClassButtonTemplate")
 Roles = Array[Resource("res://resources/role.gd")]([ExtResource("4_j1xx5"), ExtResource("5_6n4dg"), ExtResource("6_8ss2o")])
 
-[node name="SelectClassButtonTemplate" type="Button" parent="SelectClassMenu"]
+[node name="SelectClassButtonTemplate" type="Button" parent="VBoxContainer/SelectClassMenu"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -121,3 +118,5 @@ toggle_mode = true
 text = "Warrior"
 script = ExtResource("7_i4at5")
 target = ExtResource("2_owgiq")
+
+[node name="Node2D" type="Node2D" parent="."]
