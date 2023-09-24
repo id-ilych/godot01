@@ -7,7 +7,7 @@ enum Property {
 	Intelligence,
 }
 
-@export var source: CharacterClassReference
+@export var source: RoleReference
 @export var property: Property
 
 func _ready():
@@ -21,18 +21,18 @@ func refresh():
 	text = extract_text(source.value)
 
 
-func extract_text(klass: CharacterClass):
-	if not klass: return "--"
+func extract_text(role: Role):
+	if not role: return "--"
 	
 	match property:
 		Property.Name:
-			return klass.name
+			return role.name
 		Property.Strength:
-			return str(klass.strength)
+			return str(role.strength)
 		Property.Agility:
-			return str(klass.agility)
+			return str(role.agility)
 		Property.Intelligence:
-			return str(klass.intelligence)
+			return str(role.intelligence)
 		_:
-			print("[CharacterClassLable#extract] Unknown property: ", property)
+			print("[RoleLabel#extract] Unknown property: ", property)
 			return "???"

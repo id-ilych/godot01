@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://cl0gtsm784qwr"]
 
-[ext_resource type="Script" path="res://behaviors/character_class_label.gd" id="1_tf0my"]
-[ext_resource type="Resource" uid="uid://8d7j13cq33up" path="res://character_classes/warrior.tres" id="2_2453u"]
-[ext_resource type="Resource" uid="uid://dtp2iqoxfu7bw" path="res://character_classes/wizard.tres" id="2_q0rs7"]
-[ext_resource type="Script" path="res://behaviors/select_class_menu.gd" id="3_f6qs5"]
-[ext_resource type="Resource" uid="uid://b8akoiilqi5r0" path="res://character_classes/assassin.tres" id="5_vetnh"]
-[ext_resource type="Script" path="res://behaviors/select_class_button.gd" id="6_0cjlj"]
-[ext_resource type="Resource" uid="uid://d3lgvijj58n6h" path="res://state/selected_class.tres" id="7_3tlra"]
+[ext_resource type="Script" path="res://behaviors/role_label.gd" id="1_qhey7"]
+[ext_resource type="Resource" uid="uid://d3lgvijj58n6h" path="res://state/selected_role.tres" id="2_owgiq"]
+[ext_resource type="Script" path="res://behaviors/select_role_menu.gd" id="3_1ub3g"]
+[ext_resource type="Resource" uid="uid://8d7j13cq33up" path="res://roles/warrior.tres" id="4_j1xx5"]
+[ext_resource type="Resource" uid="uid://b8akoiilqi5r0" path="res://roles/assassin.tres" id="5_6n4dg"]
+[ext_resource type="Resource" uid="uid://dtp2iqoxfu7bw" path="res://roles/wizard.tres" id="6_8ss2o"]
+[ext_resource type="Script" path="res://behaviors/select_role_button.gd" id="7_i4at5"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -58,8 +58,8 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "99"
 horizontal_alignment = 2
-script = ExtResource("1_tf0my")
-source = ExtResource("7_3tlra")
+script = ExtResource("1_qhey7")
+source = ExtResource("2_owgiq")
 property = 1
 
 [node name="Agility" type="HBoxContainer" parent="SelectedClass/CenteredContainer/Stats"]
@@ -79,8 +79,8 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "99"
 horizontal_alignment = 2
-script = ExtResource("1_tf0my")
-source = ExtResource("7_3tlra")
+script = ExtResource("1_qhey7")
+source = ExtResource("2_owgiq")
 property = 2
 
 [node name="Intelligence" type="HBoxContainer" parent="SelectedClass/CenteredContainer/Stats"]
@@ -100,17 +100,17 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "99"
 horizontal_alignment = 2
-script = ExtResource("1_tf0my")
-source = ExtResource("7_3tlra")
+script = ExtResource("1_qhey7")
+source = ExtResource("2_owgiq")
 property = 3
 
 [node name="SelectClassMenu" type="HBoxContainer" parent="." node_paths=PackedStringArray("button_template")]
 offset_top = 520.0
 offset_right = 1150.0
 offset_bottom = 646.0
-script = ExtResource("3_f6qs5")
+script = ExtResource("3_1ub3g")
 button_template = NodePath("SelectClassButtonTemplate")
-classes = Array[Resource("res://resource_definitions/character_class.gd")]([ExtResource("2_2453u"), ExtResource("5_vetnh"), ExtResource("2_q0rs7")])
+Roles = Array[Resource("res://resources/role.gd")]([ExtResource("4_j1xx5"), ExtResource("5_6n4dg"), ExtResource("6_8ss2o")])
 
 [node name="SelectClassButtonTemplate" type="Button" parent="SelectClassMenu"]
 layout_mode = 2
@@ -119,5 +119,5 @@ focus_mode = 0
 theme_override_font_sizes/font_size = 50
 toggle_mode = true
 text = "Warrior"
-script = ExtResource("6_0cjlj")
-target = ExtResource("7_3tlra")
+script = ExtResource("7_i4at5")
+target = ExtResource("2_owgiq")
